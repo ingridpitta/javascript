@@ -1,1 +1,0 @@
-// Crie uma função que calcule o índice de massa corporal de uma pessoa (IMC)
