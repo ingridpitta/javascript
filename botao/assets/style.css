@@ -1,0 +1,13 @@
+body{
+    text-align: center;
+    height: 500px;
+    margin: 0 auto;
+}
+
+
+.img{
+    text-align: center;
+    width: 400px;
+    padding: 125px;
+    cursor: pointer;
+}
