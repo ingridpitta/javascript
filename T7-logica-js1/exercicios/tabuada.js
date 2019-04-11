@@ -13,3 +13,10 @@ Crie uma função que imprima na tela uma tabuada seguindo o padrão:
 2 x 10 = 20
 
 */ 
+
+
+function tabuada(a,b){
+    for(var i = 1; i <= b; i++){
+        console.log(a + "x" + i + "=" + (a*i));
+    }
+}
