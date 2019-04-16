@@ -1,0 +1,24 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 1px;
+    background-image: url("./img/cachorros.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100vw;
+    height: 100vh;
+}
+
+#frase{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+li{
+    list-style: none;
+    text-align: center;
+    margin: 5px;
+}

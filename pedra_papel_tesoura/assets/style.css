@@ -1,0 +1,38 @@
+/* .escondido--nome{
+    display: block;
+}
+.escondido--escolha{
+    display: none;
+
+}
+  */
+
+
+body{
+    text-align: center;
+}
+
+.container{
+    text-align: center;  
+    display: flex;
+    flex-direction: column;
+}
+
+
+.formulario fieldset{
+    border: none;
+    margin: 0;
+    
+}
+
+.escondido--nome input, .escondido--escolha input{
+    text-align: center;  
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+label{
+    padding:  10px;
+    font-weight: bold;
+} 
