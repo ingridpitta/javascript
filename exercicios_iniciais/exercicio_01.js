@@ -1,7 +1,7 @@
-var pessoa{
+var pessoa = {
     nome: "josi",
     idade: 22,
-    aniversario: function(){
+    aniversario: function aniv (){
         pessoa.idade = pessoa.idade+1
     }
-}
+};
