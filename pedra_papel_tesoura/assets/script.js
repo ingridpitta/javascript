@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
 
         switch(escolhaComputador) {
             //Computador escolheu pedra:
-            case "pedra": // Tem que referenciar à lista
+            case listaEscolhas[0]: // Tem que referenciar à lista
                 if(escolhaJogador == escolhaComputador){ 
                     resultado.innerHTML = "Empate!";
                 } // strings entre aspas sempre
@@ -50,7 +50,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
                 break;
 
                  //Computador escolheu papel:
-                case "papel": // Tem que referenciar à lista
+                case listaEscolhas[1]: // Tem que referenciar à lista
                 if(escolhaJogador == escolhaComputador){ 
                     resultado.innerHTML = "Empate!";
                 } // strings entre aspas sempre
@@ -63,7 +63,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
                 break;
 
                  //Computador escolheu tesoura:
-                 case "tesoura": // Tem que referenciar à lista
+                 case listaEscolhas[2]: // Tem que referenciar à lista
                  if(escolhaJogador == escolhaComputador){ 
                      resultado.innerHTML = "Empate!";
                  } // strings entre aspas sempre
@@ -76,7 +76,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
                  break;
 
                  //Computador escolheu lagarto:
-                 case "lagarto": // Tem que referenciar à lista
+                 case listaEscolhas[3]: // Tem que referenciar à lista
                  if(escolhaJogador == escolhaComputador){ 
                      resultado.innerHTML = "Empate!";
                  } // strings entre aspas sempre
@@ -89,7 +89,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
                  break;
 
                  //Computador escolheu spock:
-                 case "spock": // Tem que referenciar à lista
+                 case listaEscolhas[4]: // Tem que referenciar à lista
                  if(escolhaJogador == escolhaComputador){ 
                      resultado.innerHTML = "Empate!";
                  } // strings entre aspas sempre

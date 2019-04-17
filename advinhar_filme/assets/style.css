@@ -1,0 +1,30 @@
+.container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    letter-spacing: 1px;
+}
+
+.container img{
+    padding: 30px;
+}
+
+.paragrafo {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 5px;
+    padding: 30px;
+    font-size: 20px;
+}
+
+.container__btn{
+    padding: 20px;
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    font-size: 30px;
+    font-family: 'Bungee Shade';
+    cursor: pointer;
+}
