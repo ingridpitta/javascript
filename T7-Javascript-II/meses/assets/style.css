@@ -1,0 +1,41 @@
+body{
+    text-align: center;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: crimson;
+}
+
+#mes{
+    font-size: 20px;
+    font-weight: bold;
+    color: crimson;
+}
+
+.container__form{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    border: none;
+}
+
+.container__form button {
+    margin: 10px auto;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    background-color: crimson;
+    color: white;
+}
+
+.container__form input{
+    margin: 10px auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0.5px solid crimson;
+    color: crimson;;
+}
