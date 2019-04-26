@@ -65,6 +65,7 @@ video{
     padding: 0;
     background: transparent;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .compartilharResultado{
@@ -84,11 +85,12 @@ video{
 
 .blueResultado{
     width: 300px;
-    height: 300px;
+    margin: 20px;
 }
 
 .containerResultado{
-    border: 3px solid red;
+    display: none;
+    border: 3px solid crimson;
     width: 800px;
     margin: 0 auto;
 }
@@ -98,14 +100,25 @@ video{
     margin-right: 2px;
 }
 
+.btnFacebook{
+    cursor: pointer;
+}
+
 .btnFacebook img{
     width: 10px;
     margin: 0;
+}
+.btnTwitter{
+    cursor: pointer;
 }
 
 .btnTwitter img{
     width: 10px;
     margin: 0;
+}
+
+.btnLink{
+    cursor: pointer;
 }
 
 .btnLink img{
@@ -122,4 +135,14 @@ video{
     filter: opacity(1);
     border: 4px solid greenyellow;
     margin: 0 !important;
+}
+
+.btnResultado{
+    margin: 15px auto;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: crimson;
+    color:white;
+    font-weight: bold;
+    cursor: pointer;
 }

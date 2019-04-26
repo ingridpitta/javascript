@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', function (event) {
-    //Mudar classe (css) de acordo com click do usuário
+    
     let allForms = document.querySelectorAll('.conteudo');
-
+    //Função para mudar classe (css) de acordo com click do usuário; escolha das respostas.
     allForms.forEach(function(form){
         let characters = form.querySelectorAll('img');
 
@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
     });
     
     let resultado = document.querySelector("#btnResultado");
-
+    //Função botão "Obter Resultado!"
     resultado.addEventListener("click", function gerarResultado(){
         //Resultados Possíveis
         let listaResultado = ["./assets/img/blue_ata.jpg", "./assets/img/blue_domadora_de_brancas.jpg", "./assets/img/blue_dona_da_porra_toda.gif","./assets/img/blue_forcada.jpeg", "./assets/img/blue_julgadora.jpg", "./assets/img/blue_meiga.jpeg", "./assets/img/blue_minha_filhaaaaa.jpg", "./assets/img/blue_nhaaam.jpg", "./assets/img/blue_princesa.jpg", "./assets/img/blue_really.jpg", "./assets/img/blue_sem_paciencia.jpg", "./assets/img/blue_sem_tempo_irmao.jpg"];
@@ -81,5 +81,8 @@ window.addEventListener('DOMContentLoaded', function (event) {
                 blueResultado.src = listaResultado[5];
             }
         };
-    });     
+        // Mostrar container do resultado
+        let containerResultado = document.querySelector(".containerResultado");
+        containerResultado.style.display = "block";
+    }); 
 });
