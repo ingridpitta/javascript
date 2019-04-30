@@ -1,0 +1,46 @@
+body{
+    font-family: "Open Sans", sans-serif;
+    background-image: -webkit-gradient(linear, left top, right top, from(#e0c3fc), to(#8ec5fc));
+}
+
+.container{
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo{
+    font-weight: bolder;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.input{
+    padding: 10%;
+}
+
+.btn{
+    padding: 5%;
+    background-color: #ba7af8;
+    color: white;
+    border: none;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.div-conteudo{
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnRodape{
+    display: none;
+}
