@@ -4,20 +4,27 @@ const divTarefas = document.getElementById("tarefas") // Div onde ficará a list
 
 
 
+window.addEventListener('keypress', function(event){ // Ativar a função submit com bnt Enter
+    if (event.key == "Enter") {
+    submit();
+    }
+});
 
-btnSubmit.addEventListener('click', function(){ // Função btn ADD
+function submit (){ // script de ações possíveis
     const divConteudo = document.createElement("div") // Div conteúdo de cada tarefa
     divConteudo.className = "div-conteudo" // Add uma classe à Div conteúdo
+    divConteudo.setAttribute('draggable', true) // Habilitar Drag and Drop
 
     const btnCheck = document.createElement("input") // Criar botão check
     btnCheck.setAttribute("type", "checkbox") // Definindo as propriedades do btn check
+    btnCheck.className = "btnCheck"
 
     const tarefasAdded = document.createElement("p") // Criar parágrafo ao clicar no btn ADD
     tarefasAdded.style.display="inline" // Alinhar parágrafo
 
     const btnExcluir = document.createElement("button")// Criar botão excluir
     btnExcluir.className = "btn-excluir" // Atribuir uma classe ao btn excluir
-    btnExcluir.innerHTML = "X" // Incluir o x no HTML
+    btnExcluir.innerHTML = "🗑️" // Incluir o x no HTML
 
     const btnConcluir = document.getElementById("btnRodapeConcluir")// Criar botão concluir tarefas
     const btnLimparLista = document.getElementById("btnRodapeLimpar")// Criar botão limpar tarefas
@@ -26,19 +33,24 @@ btnSubmit.addEventListener('click', function(){ // Função btn ADD
     btnConcluir.style.display = "inline-block";
     
     let inputValor = input.value // Pegar valor do input
-   
-    if (inputValor == "") // Caso input seja vazio (inválido)
-    {
-        alert("Por favor, adicione uma tarefa válida!") // Invalidar campos vazios
+    
+    if (inputValor == ""){
+    const tarefasContainer = document.querySelectorAll(".div-conteudo") // Chamo todos as tarefas adicionadas pelo usuário
+
+    const tarefasArray = Object.values(tarefasContainer) // Esse método retorna todas as propriedades do meu objeto como em um array
+    if (tarefasArray.length==0) { // Se não tiver nenhuma tarefa, os botões do rodapé somem
+        btnLimparLista.style.display = "none";
+        btnConcluir.style.display = "none";
     }
-
-    else { // Caso input seja válido
+    alert("Por favor, adicione uma tarefa válida!") // Invalidar campos vazios
+    }
+    else{ // Caso input seja válido
     divTarefas.appendChild(divConteudo)  // Div conteudo é filha da div tarefas
+    
+    tarefasAdded.innerHTML = inputValor // O valor do parágrafo criado deve ser inserido no HTML
     divConteudo.appendChild(btnCheck) // Btn check é filho da div conteúdo
-    divConteudo.appendChild(btnExcluir) // Btn excluir é filho da div conteúdo
-
-    tarefasAdded.innerHTML = inputValor  // O valor do parágrafo criado deve ser inserido no HTML
     divConteudo.appendChild(tarefasAdded) // O parágrafo é filho da div conteúdo
+    divConteudo.appendChild(btnExcluir) // Btn excluir é filho da div conteúdo
 
     input.value = "" // Limpar o input 
     }
@@ -53,40 +65,57 @@ btnSubmit.addEventListener('click', function(){ // Função btn ADD
         }
     });
 
-    btnExcluir.addEventListener("click", function(){ // btn exclui as tarefas uma a uma e esconde os btns limpar tudo e conluir tarefas caso não tenha nenhum ítem na lista
-        tarefasAdded.remove();
-        btnCheck.remove();
-        btnExcluir.remove();
-        // console.log(divConteudo);
-        // console.log(divTarefas.innerHTML)
-        const tarefasContainer = document.querySelectorAll('.div-conteudo')
-        // console.log(tarefasContainer)
+    btnExcluir.addEventListener('click', function(){ // Função para excluir tarefas individualmente
+        divConteudo.remove();
+        const tarefasContainer = document.querySelectorAll(".div-conteudo") // Chamo todos as tarefas adicionadas pelo usuário
 
-        let vazio = false
-
-        tarefasContainer.forEach(function(item){ // esconder btns
-            if (item.innerHTML != "") {
-                vazio = false
-            } else {
-                vazio = true
-            }
-        })
-
-        if (vazio) {
+        const tarefasArray = Object.values(tarefasContainer) // Esse método retorna todas as propriedades do meu objeto como em um array
+        if (tarefasArray.length==0) { // Se não tiver nenhuma tarefa, os botões do rodapé somem
             btnLimparLista.style.display = "none";
             btnConcluir.style.display = "none";
         }
-    });
+    });   
 
+    // Drag and Drop
+    divConteudo.addEventListener("dragstart", function (ev) { 
+        dragging = ev.target.closest(".div-conteudo")
+    })
+
+    divConteudo.addEventListener("dragover", function (ev) {
+        ev.preventDefault();
+        const node = ev.target.closest(".div-conteudo")
+        ev.dataTransfer.dropEffect = 'move';
+        this.parentNode.insertBefore(dragging, node)  
+    })
+
+    divConteudo.addEventListener("dragend", function (ev) {
+        ev.preventDefault();
+        const node = ev.target.closest(".div-conteudo")
+        this.parentNode.insertAfter(dragging, node)
+    })
+
+    // MELLLLL OLHA AQUIIII!!!
     btnConcluir.addEventListener("click", function(){ // Marcar ou desmarcar todas as tarefas como concluídas
-        if(btnCheck.checked == true){
-        btnCheck.checked = false;
-        tarefasAdded.style.color = "black";
-        tarefasAdded.style.textDecoration = "none";
+        const marcarTarefas = document.querySelectorAll(".btnCheck") // Pegar todos os inputs checkbox
+        
+        let checados = btnCheck.checked;
+
+        marcarTarefas.forEach(function(item){
+            if (item.checked == true) {
+                checados = true
+            } else {
+                checados = false
+            }
+        })
+
+        if (!checados) {
+            tarefasAdded.style.color = "grey";
+            tarefasAdded.style.textDecoration = "line-through";
+            btnCheck.checked = true;
         }else{
-        btnCheck.checked = true;
-        tarefasAdded.style.color = "grey";
-        tarefasAdded.style.textDecoration = "line-through";
+            btnCheck.checked = false;
+            tarefasAdded.style.color = "black";
+            tarefasAdded.style.textDecoration = "none";
         }
     });
 
@@ -94,7 +123,9 @@ btnSubmit.addEventListener('click', function(){ // Função btn ADD
         tarefasAdded.remove();
         btnCheck.remove();
         btnExcluir.remove();
+        divConteudo.remove();
         btnLimparLista.style.display = "none";
         btnConcluir.style.display = "none";
-    });
-}); //mudar ordem dos elementos da div-conteudo, estilizar botões e fazer o drop (extra)
+    }); //mudar ordem dos elementos da div-conteudo, estilizar botões e fazer o drop (extra)
+}
+btnSubmit.addEventListener('click', submit) // função submit aplicada ao botão ADD
