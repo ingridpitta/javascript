@@ -45,10 +45,12 @@ body{
 }
 
 .div-conteudo{
+    margin-top: 1%;
     color: black;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: none;
 }
 
 .div-conteudo p{
