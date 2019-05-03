@@ -107,24 +107,24 @@ btnConcluir.addEventListener("click", function () { // Marcar/Desmarcar todas as
     const tarefas = document.querySelectorAll(".div-conteudo");
 
     let action = false; // desmarcado
-
+    //validação do action
     for (i = 0; i < tarefas.length; i++) {
-        const check = tarefas[i].querySelector(".btnCheck").checked //pegar o check dentro do loop
-        if (!check) {
-            action = true // se não marcado, marque
+        const check = tarefas[i].querySelector(".btnCheck").checked //pegar os checkboxes marcados dentro do loop um a um
+        if (!check) { // pegar os checkboxes não marcados em tarefas.length
+            action = true //  marcar os checkboxes não marcados
             break; // pare de rodar a função e só rode de novo no próximo clique onde cairá no else
         } else { 
-            action = false // se marcado, desmarque
+            action = false // desmarcar os checkboxes marcados no clique anterior e os que já estavam marcados anteriormente
         }
     }
-
+    // Add estilo a partir da validação do action
     tarefas.forEach(function (item) {
-        item.querySelector(".btnCheck").checked = action // pegar todos os checks marcados
+        item.querySelector(".btnCheck").checked = action // marcar ou desmarcar checkboxes
         const paragrafo = item.querySelector("p") // pegar os parágrafos
-        if (action) { // se marcados aplicar este estilo
+        if (action) { // action == true então estão marcados e deve-se aplicar este estilo
             paragrafo.style.color = "grey"
             paragrafo.style.textDecoration = "line-through"
-        } else { // senão marcados aplicar este estilo
+        } else { // action == false então estão desmarcados e deve-se aplicar este estilo
             paragrafo.style.color = "black"
             paragrafo.style.textDecoration = "none"
         }
