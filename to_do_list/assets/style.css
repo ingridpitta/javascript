@@ -53,6 +53,31 @@ body{
     border: none;
 }
 
+/* Documentação Mozila */
+::-moz-selection{ 
+    background: transparent;
+}
+
+::selection{
+    background: transparent;
+}
+
+.div-conteudo:hover{
+    cursor: grab;
+}
+
+.div-conteudo:default{
+    cursor: none;
+}
+
+.div-conteudo:double-button{
+    cursor: none;
+}
+
+.div-conteudo:active{
+    cursor: grabbing;
+}
+
 .div-conteudo p{
     width: 100%;
     text-align: left;

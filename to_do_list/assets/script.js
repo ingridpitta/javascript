@@ -90,9 +90,7 @@ function submit() { // ações possíveis
     })
 
     divConteudo.addEventListener("dragend", function (ev) {
-        ev.preventDefault();
-        const node = ev.target.closest(".div-conteudo")
-        this.parentNode.insertBefore(dragging, node)
+        dragging:null;
     })
 
     btnLimparLista.addEventListener("click", function () { // Limpar a lista excluindo todas as tarefas e escondendo os btns concluir e excluir tudo
